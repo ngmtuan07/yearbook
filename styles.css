@@ -123,6 +123,18 @@
 }
 
 /* Student image */
+.our-team {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.our-team h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #333;
+}
+
 .student-card img {
     width: 150px;  /* Larger image size */
     height: 150px;  /* Square shape */
@@ -191,41 +203,85 @@
     color: #333;
 }
 
-/* Gallery container to hold the images */
+/* Gallery container styling */
 .gallery-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));  /* Responsive grid */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
-    justify-items: center;
+    padding: 20px;
 }
 
-/* Style for each gallery item */
+/* Styling for individual gallery items */
 .gallery-item {
     position: relative;
-    width: 100%;
-    overflow: hidden;
-    border-radius: 10px;  /* Rounded corners */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 250px; /* Kích thước ảnh */
+    height: auto;
+    transition: transform 0.3s ease;
 }
 
-/* Gallery Image */
+/* To create slight vertical overlap effect */
+.gallery-item:nth-child(odd) {
+    margin-top: 30px; /* Đẩy ảnh ở vị trí lẻ xuống dưới một chút */
+}
+
+.gallery-item:nth-child(even) {
+    margin-top: -30px; /* Đẩy ảnh ở vị trí chẵn lên trên một chút */
+}
+
+/* Images in the gallery */
 .gallery-item img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;  /* Ensures the image covers the entire area without distortion */
+    height: auto;
+    object-fit: cover;
     border-radius: 10px;
-    transition: transform 0.3s ease;  /* Smooth zoom effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
 }
 
-/* Hover Effect: Zoom in on image */
+/* Hover effect to enlarge image */
 .gallery-item:hover img {
-    transform: scale(1.1);  /* Zoom in the image */
+    transform: scale(1.1);
 }
 
-.gallery-item:hover {
-    transform: scale(1.05);  /* Slight zoom effect for the whole card */
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);  /* Stronger shadow when hovered */
+/* Modal styling for enlarging images */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal image */
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    margin: auto;
+    display: block;
+    border-radius: 10px;
+    object-fit: contain;
+}
+
+/* Close button */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #bbb;
 }
 
 /* Responsive design for smaller screens */
