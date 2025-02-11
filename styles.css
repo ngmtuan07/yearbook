@@ -133,7 +133,7 @@
 
 /* Card Title */
 .student-card h3 {
-    font-size: 2em;  /* Larger title */
+    font-size: 1.5em;  /* Larger title */
     margin-top: 15px;
     color: #fff;
 }
@@ -317,3 +317,15 @@ footer {
     margin-top: 50px;
 }
 
+/* General section styles */
+section {
+    opacity: 0;  /* Initially hidden */
+    transform: translateY(50px);  /* Start with the section slightly lower */
+    transition: opacity 1s ease-out, transform 1s ease-out;  /* Smooth transition */
+}
+
+/* Add a class to trigger animation when section is in view */
+section.visible {
+    opacity: 1;  /* Fade in */
+    transform: translateY(0);  /* Slide to original position */
+}
