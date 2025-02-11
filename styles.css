@@ -1,0 +1,314 @@
+/* Hero Section Styles */
+.hero {
+    background: url('images/anhtapthe.jpg') no-repeat center center/cover;
+    height: 100vh;  /* Full viewport height */
+    padding-top: 80px;  /* Adjust for fixed header */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: background 1s ease;  /* Smooth background transition */
+    will-change: background;  /* Hint to the browser for better performance during transitions */
+}
+
+/* Hero Text Animations */
+.hero h1 {
+    font-size: 3em;  /* Large font size */
+    opacity: 0;
+    transform: translateY(50px);  /* Start from below */
+    animation: fadeInUp 1s ease-out forwards 0.5s;  /* Animate the text */
+}
+
+/* Hero Text Animation */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hero Section Hover Effect: Change background */
+.hero:hover {
+    background: url('images/anhtapthe2.jpg') no-repeat center center/cover;  /* New background on hover */
+}
+
+/* Parallax Effect for Hero Background */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    z-index: -1;
+    transform: translateZ(0);
+    will-change: transform;
+    transition: transform 0.2s ease-out;
+}
+
+.hero:hover::before {
+    transform: scale(1.1);  /* Slight zoom in effect for parallax */
+}
+
+/* Optional: Add extra spacing and smoother text */
+.hero h1 {
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.5);  /* Add some background for readability */
+    border-radius: 8px;
+}
+
+/* Hero Section Mobile Responsiveness */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2em;  /* Smaller font size on mobile */
+    }
+}
+
+
+/* Make the cards container scrollable */
+.cards-container {
+    display: flex;
+    gap: 30px;  /* Adjust space between cards */
+    overflow-x: auto;  /* Enables horizontal scroll */
+    padding: 20px;  /* Optional: add padding around the cards */
+    scroll-snap-type: x mandatory;  /* Ensures smooth snapping to the cards */
+    justify-content: flex-start;  /* Aligns cards to the left */
+    align-items: center;  /* Aligns cards vertically in the center */
+}
+
+/* Student Cards Section */
+.student-cards {
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.student-cards h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+/* Container for the student cards */
+.student-cards-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 50px;  /* Increase gap between cards for more space */
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+/* Style for each student card */
+.student-card {
+    width: 350px;  /* Increased width for bigger cards */
+    height: 450px;  /* Increased height for bigger cards */
+    background-color: teal;  /* Default background color */
+    color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Student image */
+.student-card img {
+    width: 150px;  /* Larger image size */
+    height: 150px;  /* Square shape */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+}
+
+/* Card Title */
+.student-card h3 {
+    font-size: 2em;  /* Larger title */
+    margin-top: 15px;
+    color: #fff;
+}
+
+/* Card Text */
+.student-card p {
+    font-size: 1.2em;
+    color: #fff;
+    margin-top: 10px;
+}
+
+/* Hover Effect for Student Cards */
+.student-card:hover {
+    background-color: skyblue;  /* Change background on hover */
+    transform: translateY(-10px);  /* Lift the card slightly */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);  /* More pronounced shadow */
+}
+
+/* Ensuring responsiveness */
+@media (max-width: 1024px) {
+    .student-cards-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .student-card {
+        width: 300px;  /* Adjust width for medium screens */
+        height: 400px;  /* Adjust height for medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .student-cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .student-card {
+        width: 250px;  /* Slightly smaller width on smaller screens */
+        height: 350px;  /* Adjusted height for smaller screens */
+    }
+}
+
+
+/* Gallery Section */
+.gallery {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.gallery h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+/* Gallery container to hold the images */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));  /* Responsive grid */
+    gap: 20px;
+    justify-items: center;
+}
+
+/* Style for each gallery item */
+.gallery-item {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;  /* Rounded corners */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Gallery Image */
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Ensures the image covers the entire area without distortion */
+    border-radius: 10px;
+    transition: transform 0.3s ease;  /* Smooth zoom effect */
+}
+
+/* Hover Effect: Zoom in on image */
+.gallery-item:hover img {
+    transform: scale(1.1);  /* Zoom in the image */
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);  /* Slight zoom effect for the whole card */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);  /* Stronger shadow when hovered */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .gallery-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));  /* Adjust grid for mobile */
+    }
+
+    .gallery h2 {
+        font-size: 2em;
+    }
+}
+
+/* Member Quotes Section */
+.member-quotes {
+    padding: 50px 20px;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+.member-quotes h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+/* Quote container to hold all quotes */
+.quote-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;  /* Space between the quote cards */
+    flex-wrap: wrap;
+}
+
+/* Style for each quote card */
+.quote-card {
+    width: 300px;  /* Width of the quote card */
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-height: 350px;
+}
+
+.quote-card:hover {
+    transform: translateY(-5px);  /* Lift effect on hover */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);  /* Stronger shadow when hovered */
+}
+
+/* Styling for the quote text */
+.quote-text {
+    font-size: 1.2em;
+    color: #555;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+/* Styling for the member name */
+.quote-card h3 {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+
+/* Ensuring responsiveness */
+@media (max-width: 768px) {
+    .quote-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .quote-card {
+        width: 250px;  /* Adjust width for mobile */
+    }
+}
+
+
+
+/* Footer */
+footer {
+    margin-top: 50px;
+}
+
