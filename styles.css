@@ -241,8 +241,8 @@
 
 /* Member Quotes Section */
 .member-quotes {
-    padding: 50px 20px;
-    background-color: #f8f8f8;
+    padding: 60px 20px;
+    background-color: #f9f9f9;
     text-align: center;
 }
 
@@ -250,6 +250,7 @@
     font-size: 2.5em;
     margin-bottom: 40px;
     color: #333;
+    font-weight: 600;
 }
 
 /* Quote container to hold all quotes */
@@ -264,33 +265,37 @@
 .quote-card {
     width: 300px;  /* Width of the quote card */
     background-color: #fff;
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 20px;  /* Round the corners more */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     max-height: 350px;
 }
 
+/* Hover effect */
 .quote-card:hover {
     transform: translateY(-5px);  /* Lift effect on hover */
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);  /* Stronger shadow when hovered */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);  /* Stronger shadow when hovered */
 }
 
 /* Styling for the quote text */
 .quote-text {
-    font-size: 1.2em;
-    color: #555;
+    font-size: 1.3em;
+    color: #666;
     font-style: italic;
     margin-bottom: 20px;
+    line-height: 1.6;
+    font-family: 'Arial', sans-serif;
 }
 
 /* Styling for the member name */
 .quote-card h3 {
-    font-size: 1.5em;
-    font-weight: bold;
+    font-size: 1.6em;
+    font-weight: 500;
     color: #333;
     margin-top: 10px;
+    font-family: 'Arial', sans-serif;
 }
 
 /* Ensuring responsiveness */
@@ -302,9 +307,9 @@
 
     .quote-card {
         width: 250px;  /* Adjust width for mobile */
+        padding: 20px;  /* Less padding on mobile */
     }
 }
-
 
 
 /* Footer */
